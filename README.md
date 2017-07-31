@@ -1,6 +1,8 @@
 # Ближайшие бары
 
-[FIXME. Здесь будет описание проекта]
+Эта программа помогает подобрать бар для приятного вечера. С ее помощью
+можно найти самый маленький бар, самый большой и самы ближайший по
+координатам.
 
 # Как запустить
 
@@ -10,12 +12,23 @@
 
 ```#!bash
 
-$ python bars.py # possibly requires call of python3 executive instead of just python
-# FIXME вывести пример ответа скрипта
-
+$ python bars.py filename type[ latitude longtitude]
 ```
 
+Где filename - имя файла с дампом баров
+(https://data.mos.ru/opendata/7710881420-bary).
+
+type - тип запроса biggest, smallest или closest. Для closest еще координаты пользователя
+latitude longtitude.
+
 Запуск на Windows происходит аналогично.
+
+Пример запуска:
+
+```#!bash
+$ python bars.py ./data-2897-2016-11-23.json closest 37.3812210004 57
+Found bar: Бар «Адамов Роман Анатольевич», address: 2-й Западный проезд, дом 2, phone: (000) 000-00-00, seats 24, latitude: 37.1948519113, longtitude: 56.0049375036
+```
 
 # Цели проекта
 
