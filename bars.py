@@ -71,12 +71,13 @@ def get_argv_or_exit():
         print(u'Usage python bars.py filename type[ latitude longtitude]')
         print(u'Where type in [\'biggest\', \'smallest\', \'closest\']')
         print(u'For closest add latitude and longtitude coordinates')
-        sys.exit(0)
+        return None
     if sys.argv[2] == 'closest' and len(sys.argv) < 5:
         print(u'For closest add latitude and longtitude coordinates')
-        sys.exit(0)
+        return None
     if sys.argv[2] not in ['biggest', 'smallest', 'closest']:
         print(u'Unkown type {}. Please one use from [\'biggest\', \'smallest\', \'closest\']'.format(type))
+        return None
     params = {'filepath': sys.argv[1], 'type': sys.argv[2], 'user_latitude': None, 'user_longitude': None}
     if sys.argv[2] == 'closest':
         params['user_latitude'] = sys.argv[3]
@@ -96,5 +97,7 @@ def find_bars(filepath, type, user_latitude = None, user_longitude = None):
 
 if __name__ == '__main__':
     params = get_argv_or_exit()
+    if params == None:
+        sys.exit(1)
     find_bars(**params)
     sys.exit(0)
